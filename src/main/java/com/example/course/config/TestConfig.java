@@ -1,9 +1,9 @@
 package com.example.course.config;
 
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -50,6 +50,15 @@ public class TestConfig implements CommandLineRunner {
 		Product p5 = new Product(null, "Rails for Dummies", "Cras fringilla convallis sem vel faucibus.", 100.99, "");
 		
 		categoryRepository.saveAll(Arrays.asList(c1, c2, c3));
+		productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
+		
+		p1.addCategory(c2);
+		p2.addCategory(c1);
+		p2.addCategory(c3);
+		p3.addCategory(c3);
+		p4.addCategory(c3);
+		p5.addCategory(c2);
+		
 		productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 		
 		User u1 = new User(null, "Maria Brown", "maria@gmail.com", "988888888", "123456");
