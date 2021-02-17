@@ -19,7 +19,7 @@ public class OrderItem implements Serializable {
 	
 	private Integer quantity;
 	private Double price;
-	
+		
 	public OrderItem() {
 	}
 
@@ -63,6 +63,10 @@ public class OrderItem implements Serializable {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
+	
+	public double getSubTotal() {
+		return quantity * price;
+	}
 
 	@Override
 	public int hashCode() {
@@ -88,6 +92,4 @@ public class OrderItem implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
 }
